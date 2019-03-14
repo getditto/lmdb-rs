@@ -25,5 +25,9 @@ fn main() {
         config.define("ANDROID", "1");
     }
 
+    if target.contains("ios") {
+        config.define("MDB_USE_POSIX_SEM", "1");
+    }
+
     config.compile("liblmdb.a");
 }
