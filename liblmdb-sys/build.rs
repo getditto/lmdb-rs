@@ -23,10 +23,9 @@ fn main() {
 
     if target.contains("android") {
         config.define("ANDROID", "1");
-    }
-
-    if target.contains("ios") {
-        config.define("MDB_USE_POSIX_SEM", "1");
+    } else if !target.contains("linux") {
+	config.define("MDB_USE_POSIX_MUTEX", "1");
+	config.define("MDB_USE_ROBUST", "0");
     }
 
     config.compile("liblmdb.a");
