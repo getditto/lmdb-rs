@@ -23,7 +23,7 @@ fn main() {
 
     if target.contains("android") {
         config.define("ANDROID", "1");
-    } else if target.contains("ios") {
+    } else if target.contains("apple") {
         config.define("MDB_USE_POSIX_MUTEX", "1");
         config.define("MDB_USE_ROBUST", "0");
     }
